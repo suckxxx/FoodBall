@@ -45,18 +45,19 @@ signButton.addEventListener('click', e => {
     })
 })
 
+
 login.addEventListener('input', e => {
     labelLogin.style.visibility = 'visible'
     labelLogin.style.opacity = 1
     labelLogin.style.transform = 'translateY(0px)'
 })
-
+    
 pass.addEventListener('input', e => {
     labelPass.style.visibility = 'visible'
     labelPass.style.opacity = 1
     labelPass.style.transform = 'translateY(0px)'
 })
-
+    
 setInterval(() => {
     if (login.value == ''){
         labelLogin.style.visibility = 'hidden'
@@ -69,6 +70,7 @@ setInterval(() => {
         labelPass.style.transform = 'translateY(20px)'
     }
 },100)
+
 
 
 //test корзины

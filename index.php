@@ -45,19 +45,20 @@
             <input type="submit" value="sign in">
         </form>
         <p class="regtxt">
-            Don't have an account? <a href="" class="reg">register now</a>
+            Don't have an account? <a class="reg">register now</a>
         </p>
     </div>
     <!--/sign in modal-->
 
     <!--reg modal-->
     <div class="modal-reg" id="modalReg">
-        <p class="reg">registration</p>
+        <p class="register">registration</p>
         <form action="register.php" method="POST" class="form-reg">
-            <input name="login" type="text" required>
-            <input name="password" type="password" required>
+            <input name="login" type="text" placeholder="your login" required>
+            <input name="password" type="password" placeholder="your password" required>
             <input name="submit" type="submit" value="Зарегистрироваться">
         </form>
+        <p class="logtxt">back to <a>login</a></p>
     </div>
     <!--/reg modal-->
 
@@ -83,7 +84,7 @@
                 <p class="main-t">Hungry? You're in the right place</p>
                 <div class="input">
                     <input type="text" placeholder="enter your delivery address" class="d-a-inp">
-                    <img src="/img/red-arrow.svg" alt="arrow" class="r-arrow">
+                    <img src="img/red-arrow.svg" alt="arrow" class="r-arrow">
                 </div>
                 <p class="d-a-inf"><a href="" class="inf-s-in">sign in</a> for your recent addresses</p>
             </div>

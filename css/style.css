@@ -152,10 +152,70 @@
 
 .reg{
     color: #383838;
+    text-decoration: underline;
 }
 
 .modal-reg{
-    
+    position: fixed;
+    z-index: 1000;
+    width: 600px;
+    height: 400px;
+    box-shadow: 0 10px 20px 0 rgba(102, 102, 102, .3);
+    background-color: white;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    transition: .6s;
+    visibility: hidden;
+    transform: translate(115%,70%);
+}
+
+.register{
+    font-size: 24px;
+    padding: 30px 30px 0 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #383838;
+}
+
+.form-reg{
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.form-reg input{
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #929292;
+}
+
+.form-reg input:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.form-reg input:last-child{
+    background-color: #FF6A4D;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+
+.form-reg input:focus{
+    outline: none;
+}
+
+.logtxt{
+    font-size: 12px;
+    padding-left: 30px;
+}
+
+.logtxt a{
+    text-decoration: underline;
+    color: #383838;
 }
 
 #logo{
