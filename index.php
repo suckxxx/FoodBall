@@ -51,9 +51,9 @@
     <!--/sign in modal-->
 
     <!--reg modal-->
-    <div class="modal-reg" id="modal reg">
+    <div class="modal-reg" id="modalReg">
         <p class="reg">registration</p>
-        <form action="register.php" method="POST">
+        <form action="register.php" method="POST" class="form-reg">
             <input name="login" type="text" required>
             <input name="password" type="password" required>
             <input name="submit" type="submit" value="Зарегистрироваться">
