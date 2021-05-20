@@ -12,9 +12,134 @@
 }
 
 /*---  Основа  ---*/
+#helper{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 900;
+}
+
+.modal-s{
+    position: fixed;
+    z-index: 1000;
+    width: 600px;
+    height: 400px;
+    box-shadow: 0 10px 20px 0 rgba(102, 102, 102, .3);
+    background-color: white;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    visibility: hidden;
+    transition: .6s;
+    transform: translate(115%,70%);
+}
+
+.login{
+    font-size: 24px;
+    padding: 30px 30px 0 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #383838;
+}
+
+.login-form input::placeholder{
+    font-size: 18px;
+}
+
+.login-form input{
+    font-size: 18px;
+    border: 1px solid #929292;
+}
+
+.login-form input:focus{
+    outline: none;
+}
+
+.login-form input:nth-child(2), .login-form input:nth-child(4){
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.login-form input:nth-child(5){
+    background-color: #FF6A4D;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.login-form label{
+    visibility: hidden;
+    color: #929292;
+    padding-left: 11px;
+    opacity: 0;
+    transition: .2s;
+    transform: translateY(20px);
+    user-select: none;
+}
+
+.login-form{
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.regtxt{
+    padding: 0 30px 0 30px;
+    font-size: 12px;
+}
+
+.reg{
+    color: #383838;
+}
+
+#logo{
+    transition: .5s;
+}
+
 .container{
     max-width: 1800px;
     margin: auto;
+}
+
+._anim{
+    z-index: 200;
+}
+
+._anim #logo{
+    transform: scale(0.8);
+}
+
+._anim .s-in-btn{
+    font-size: 20px;
+    background: none;
+    color: black
+}
+
+._anim .burger::before{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #383838;
+    border-radius: 60px;
+    margin-right:45px;
+}
+
+._anim .burger::after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #383838;
+    border-radius: 60px;
+    margin-top: 8px;
+    margin-right:45px;
 }
 
 .header{
@@ -22,15 +147,24 @@
     background-image: url(../img/header-bg.jpg);
     background-repeat: no-repeat;
     background-position-x: 960px;
-    background-position-y: 420px;
+    background-position-y: bottom;
     background-size: 950px;
-    height: 992px;
+    height: 80vh;
 }
 
 .header-t{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    min-width: 1800px;
+    max-width: 1800px;
+    margin: auto;
+    top:0px;
+    transition: .5s;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .h-t-1{
@@ -46,6 +180,7 @@
     padding: 5px 20px 5px 20px;
     border-radius: 60px;
     cursor: pointer;
+    transition: .5s;
 }
 
 .main-t{
@@ -113,6 +248,7 @@
     background-color: #383838;
     border-radius: 60px;
     margin-right:45px;
+    transition: .5s;
 }
 
 .burger::after{
@@ -124,6 +260,7 @@
     border-radius: 60px;
     margin-top: 8px;
     margin-right:45px;
+    transition: .5s;
 }
 
 .fnm{
@@ -165,6 +302,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 80px;
+    overflow: hidden;
 }
 
 .slide-img{
@@ -188,7 +326,7 @@
 }
 
 .slide:not(:last-child){
-    margin-right: 100px;
+    margin-right: 200px;
 }
 
 .otr{
@@ -257,7 +395,7 @@
 }
 
 .bad{
-    margin-top: 300px;
+    margin-top: 200px;
 }
 
 .delivery{
@@ -279,13 +417,45 @@
     height: 400px;
 }
 
-.delivery-b{
-    background-color: #FF6A4D;
-    border:none;
-    font-size: 24px;
-    color: white;
-    margin-top: 80px;
-    width: 200px;
-    padding: 10px 20px 10px 20px;
-    border-radius: 60px;
+.delivery-text{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
 }
+
+.delivery-text p{
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+/*---  Анимации ---*/
+@keyframes pulse {
+    0% {
+        opacity: 0;
+        transform:translate(115%,70%) scale3d(1, 1, 1);
+    }
+    50% {
+        transform:translate(115%,70%) scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        opacity: 1;
+        transform:translate(115%,70%) scale3d(1, 1, 1);
+    }
+} 
+
+@keyframes bounceOut {
+    20% {
+        transform:translate(115%,70%) scale3d(.9, .9, .9);
+    }
+    50%, 55% {
+        opacity: 1;
+        transform:translate(115%,70%) scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        opacity: 0;
+        transform:translate(115%,70%) scale3d(.3, .3, .3);
+    }
+} 

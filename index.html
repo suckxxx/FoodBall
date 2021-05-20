@@ -9,19 +9,42 @@
     <title>FoodBall</title>
 </head>
 <body>
+
+    <div id="helper"></div>
+
+    <!--sign in modal-->
+    <div class="modal-s" id="modal">
+        <p class="login">login</p>
+        <form action="" class="login-form">
+            <label class="login-label" for="name" id="l-log">
+                <p>login</p>
+            </label>
+            <input type="text" name="login" placeholder="login" id="log">
+            <label class="pass-label" for="pass" id="l-pass">
+                <p>password</p>
+            </label>
+            <input type="password" name="pass" placeholder="password" id="pass">
+            <input type="submit" value="sign in">
+        </form>
+        <p class="regtxt">
+            Don't have an account? <a href="" class="reg">register now</a>
+        </p>
+    </div>
+    <!--/sign in modal-->
+
     <!--header-->
     <div class="header">
         <div class="container">
-            <div class="header-t">
+            <div class="header-t" id="headerTop">
                 <div class="h-t-1">
                     <div class="burger"></div>
                     <div class="logo-c">
-                        <a href="" class="logo"><img src="img/logo.svg" alt="logo"></a>
+                        <a href="" class="logo"><img src="img/logo.svg" alt="logo" id="logo"></a>
                     </div>
                 </div>
                 <div class="h-t-2">
                     <div class="s-in-c">
-                        <a href="" class="s-in"><button class="s-in-btn">sign in</button></a>
+                        <button class="s-in-btn" id="signInButton">sign in</button>
                     </div>
                 </div>
             </div>
@@ -158,11 +181,17 @@
             <div class="delivery">
                 <div>
                     <img src="img/delivery.svg" alt="">
-                    <button class="delivery-b">more</button>
+                    <div class="delivery-text">  
+                        <p>Age 18 years</p>
+                        <p>The right to drive a car or motorcycle</p>
+                        <p>Willingness to work 8 hours a day</p>
+                        <p>Punctuality</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--/become a delivery-->
+<script src="js/main.js"></script>
 </body>
-<script src="main.js"></script>
 </html>
