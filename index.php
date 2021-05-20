@@ -33,7 +33,7 @@
     <!--sign in modal-->
     <div class="modal-s" id="modal">
         <p class="login">login</p>
-        <form action="" class="login-form">
+        <form action="login.php" class="login-form" method="POST">
             <label class="login-label" for="name" id="l-log">
                 <p>login</p>
             </label>
@@ -52,7 +52,12 @@
 
     <!--reg modal-->
     <div class="modal-reg" id="modal reg">
-
+        <p class="reg">registration</p>
+        <form action="register.php" method="POST">
+            <input name="login" type="text" required>
+            <input name="password" type="password" required>
+            <input name="submit" type="submit" value="Зарегистрироваться">
+        </form>
     </div>
     <!--/reg modal-->
 
