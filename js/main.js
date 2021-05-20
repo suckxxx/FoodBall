@@ -6,7 +6,10 @@ var login = document.getElementById('log')
 var pass = document.getElementById('pass')
 var labelLogin = document.getElementById('l-log')
 var labelPass = document.getElementById('l-pass')
-var trash = document.getElementById('trash')
+var trash = document.querySelectorAll('.trash-count')
+var burger = document.getElementById('burger')
+var burgerModal = document.getElementById('burgerModal')
+var burgerLeave = document.getElementById('burgerLeave')
 
 var offset = (el) => {
     const rect = el.getBoundingClientRect(),
@@ -69,23 +72,35 @@ setInterval(() => {
 
 
 //test корзины
-trashCount = 0;
+trashCount = 0
 
-if (trashCount >= 1000) {
-    trashCount /= 1000
-    trashCount += 'k'
-} else if (trashCount >= 100) {
-    trashCount /= 100
-    trashCount += 'h'
+for(var i = 0; i < trash.length; i++){
+    if (trashCount >= 1000) {
+        trashCount /= 1000
+        trashCount += 'k'
+    } else if (trashCount >= 100) {
+        trashCount /= 100
+        trashCount += 'h'
+    }
+    
+    if (trashCount > 0){
+        trash[i].style.opacity = 1;
+        trash[i].style.visibility = 'visible'
+    } else {
+        trash[i].style.opacity = 0;
+        trash[i].style.visibility = 'hidden'
+    }
+
+    trash[i].innerHTML = trashCount
 }
 
-if (trashCount > 0){
-    trash.style.opacity = 1;
-    trash.style.visibility = 'visible'
-} else {
-    trash.style.opacity = 0;
-    trash.style.visibility = 'hidden'
-}
+//burger menu
+burger.addEventListener('click', e => {
+    burgerModal.style.visibility = 'visible'
+    burgerModal.style.opacity = 1
+})
 
-
-trash.innerHTML = trashCount
+burgerLeave.addEventListener('click', e => {
+    burgerModal.style.visibility = 'hidden'
+    burgerModal.style.opacity = 0
+})

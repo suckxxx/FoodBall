@@ -5,12 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/logo-ico.svg">
     <title>FoodBall</title>
 </head>
 <body>
 
     <div id="helper"></div>
+
+    <div class="burger-modal" id="burgerModal">
+        <div class="container">
+            <div class="burger-nav">
+                <img src="img/cross.svg" alt="cross" class="burger-cross" id="burgerLeave">
+                <div class="nav">
+                    <a href="#fnm">Food near me</a>
+                    <a href="#or">Other restaurants</a>
+                    <a href="#bad">Become a delivery</a>
+                    <a href="#htp">Help the project</a>
+                </div>
+                <div class="cart">
+                    <img src="img/trash.svg" alt="" class="s-cart">
+                    <div class="trash-count"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--sign in modal-->
     <div class="modal-s" id="modal">
@@ -32,12 +50,18 @@
     </div>
     <!--/sign in modal-->
 
+    <!--reg modal-->
+    <div class="modal-reg" id="modal reg">
+
+    </div>
+    <!--/reg modal-->
+
     <!--header-->
     <div class="header">
         <div class="container">
             <div class="header-t" id="headerTop">
                 <div class="h-t-1">
-                    <div class="burger">
+                    <div class="burger" id="burger">
                         <div class="trash-count" id="trash"></div>
                     </div>
                     <div class="logo-c">
@@ -68,7 +92,7 @@
             <!--fnm header-->
             <div class="fnm-header">
                 <div class="heading">
-                    <p>Food near me</p>
+                    <a name="fnm">Food near me</a>
                 </div>
                 <div class="slider-arrow">
                     <a href="#" class="v-all">view all</a>
@@ -126,7 +150,7 @@
         <div class="container">
             <div class="otr-heading">
                 <div class="heading">
-                    <p>Other restaurants</p>
+                    <a name="or">Other restaurants</a>
                 </div>
                 <div class="view-all">
                     <a href="" class="v-all">view all</a>
@@ -178,10 +202,11 @@
     <div class="bad">
         <div class="container">
             <div class="heading">
-                <p>Become a delivery</p>
+                <a name="bad">Become a delivery</a>
             </div>
             <div class="delivery">
                 <div>
+                    <img src="img/delivery.svg" alt="" class="blur-delivery">
                     <img src="img/delivery.svg" alt="">
                     <div class="delivery-text">  
                         <p>Age 18 years</p>
@@ -194,6 +219,29 @@
         </div>
     </div>
     <!--/become a delivery-->
+
+    <!--help the project-->
+    <div class="htp">
+        <div class="container">
+            <div class="heading">
+                <a name="htp">Help the project</p>
+            </div>
+            <div class="project">
+                <div>
+                    <img src="img/donate.png" alt="donate" class="blur-donate">
+                    <img src="img/donate.png" alt="donate" class="donate">
+                    <p>- scan me</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/help the project-->
+
+    <!--footer-->
+    <div class="footer">
+        <p>wip</p>
+    </div>
+    <!--/footer-->
 <script src="js/main.js"></script>
 </body>
 </html>
