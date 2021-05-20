@@ -111,6 +111,15 @@
     z-index: 200;
 }
 
+._anim .trash-count{
+    left: 20px;
+}
+
+._anim .s-in-btn:hover{
+    color: #FF6A4D;
+    background-color: white;
+}
+
 ._anim #logo{
     transform: scale(0.8);
 }
@@ -183,6 +192,10 @@
     transition: .5s;
 }
 
+.s-in-btn:hover{
+    background-color: #FF6A4D;
+}
+
 .main-t{
     font-size: 72px;
     color: #121212;
@@ -238,6 +251,29 @@
 
 .inf-s-in{
     color: #383838;
+}
+
+.burger{
+    position: relative;
+}
+
+.trash-count{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    bottom: 0;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    background-color: #FF6A4D;
+    visibility: hidden;
+    opacity: 0;
+    color: white;
+    transition: .5s;
+
 }
 
 .burger::before{
@@ -369,7 +405,7 @@
     width: 550px;
     height: 350px;
     position: absolute;
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
     opacity: 0;
     transition: .2s;
 }
@@ -432,6 +468,18 @@
 
 
 /*---  Анимации ---*/
+@keyframes underline{
+    0%{
+
+    }
+    50%{
+
+    }
+    100%{
+
+    }
+}
+
 @keyframes pulse {
     0% {
         opacity: 0;

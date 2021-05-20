@@ -6,6 +6,7 @@ var login = document.getElementById('log')
 var pass = document.getElementById('pass')
 var labelLogin = document.getElementById('l-log')
 var labelPass = document.getElementById('l-pass')
+var trash = document.getElementById('trash')
 
 var offset = (el) => {
     const rect = el.getBoundingClientRect(),
@@ -65,3 +66,26 @@ setInterval(() => {
         labelPass.style.transform = 'translateY(20px)'
     }
 },100)
+
+
+//test корзины
+trashCount = 0;
+
+if (trashCount >= 1000) {
+    trashCount /= 1000
+    trashCount += 'k'
+} else if (trashCount >= 100) {
+    trashCount /= 100
+    trashCount += 'h'
+}
+
+if (trashCount > 0){
+    trash.style.opacity = 1;
+    trash.style.visibility = 'visible'
+} else {
+    trash.style.opacity = 0;
+    trash.style.visibility = 'hidden'
+}
+
+
+trash.innerHTML = trashCount
