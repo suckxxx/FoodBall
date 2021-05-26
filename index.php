@@ -1,5 +1,6 @@
 <?php
     session_start();
+    if($_SESSION['userName'] != '') header('Location: login.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/logo-ico.svg">
-    <title>FoodBall - main</title>
+    <title>FoodBall</title>
 </head>
 <body>
 
@@ -36,15 +37,15 @@
     <!--sign in modal-->
     <div class="modal-s" id="modal">
         <p class="login">login</p>
-        <form action="login.php" class="login-form" method="POST">
+        <form action="pages/loginCheck.php" class="login-form" method="POST">
             <label class="login-label" for="name" id="l-log">
                 <p>login</p>
             </label>
-            <input type="text" name="login" placeholder="login" id="log">
+            <input type="text" name="login" placeholder="login" id="log" required>
             <label class="pass-label" for="pass" id="l-pass">
                 <p>password</p>
             </label>
-            <input type="password" name="pass" placeholder="password" id="pass">
+            <input type="password" name="pass" placeholder="password" id="pass" required>
             <input type="submit" value="sign in">
         </form>
         <p class="regtxt">
@@ -56,10 +57,10 @@
     <!--reg modal-->
     <div class="modal-reg" id="modalReg">
         <p class="register">registration</p>
-        <form action="register.php" method="POST" class="form-reg">
+        <form action="pages/register.php" method="POST" class="form-reg">
             <input name="login" type="text" placeholder="your login" required>
             <input name="password" type="password" placeholder="your password" required>
-            <input name="submit" type="submit" value="Зарегистрироваться">
+            <input name="submit" type="submit" value="register">
         </form>
         <p class="logtxt">back to <a id="loginButton">login</a></p>
     </div>
@@ -248,7 +249,6 @@
 
     <!--footer-->
     <div class="footer">
-        <p>wip</p>
     </div>
     <!--/footer-->
 <script src="js/main.js"></script>

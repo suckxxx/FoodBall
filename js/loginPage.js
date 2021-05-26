@@ -39,55 +39,6 @@ window.addEventListener('scroll', e => {
 
 })
 
-signButton.addEventListener('click', e => {
-    modal.style.visibility = 'visible'
-    helper.style.display = 'block'
-    modal.style.animation = 'pulse .5s both'
-
-    helper.addEventListener('click', e => {
-        modal.style.visibility = 'hidden'
-        modalReg.style.visibility = 'hidden'
-        modalReg.style.opacity = '0'
-        helper.style.display = 'none'
-        modal.style.animation = 'bounceOut .5s both'
-    })
-
-    registerButton.addEventListener('click', e => {
-        modal.style.visibility = 'hidden'
-        modal.style.opacity = '0'
-        modalReg.style.opacity = '1'
-        modalReg.style.visibility = 'visible'
-    })
-})
-
-
-login.addEventListener('input', e => {
-    labelLogin.style.visibility = 'visible'
-    labelLogin.style.opacity = '1'
-    labelLogin.style.transform = 'translateY(0px)'
-})
-    
-pass.addEventListener('input', e => {
-    labelPass.style.visibility = 'visible'
-    labelPass.style.opacity = '1'
-    labelPass.style.transform = 'translateY(0px)'
-})
-    
-setInterval(() => {
-    if (login.value == ''){
-        labelLogin.style.visibility = 'hidden'
-        labelLogin.style.opacity = '0'
-        labelLogin.style.transform = 'translateY(20px)'
-    }
-    if (pass.value == ''){
-        labelPass.style.visibility = 'hidden'
-        labelPass.style.opacity = '0'
-        labelPass.style.transform = 'translateY(20px)'
-    }
-},100)
-
-
-
 //test корзины
 trashCount = 0
 
@@ -124,10 +75,9 @@ burgerLeave.addEventListener('click', e => {
 
 
 user.addEventListener('click', e => {
-    document.location.replace('pages/loginP/user.php')
+    document.location.replace('../pages/loginP/user.php')
 })
 
 logout.addEventListener('click', e => {
-    alert('hello')
-    document.location.replace('pages/clear.php')
+    document.location.replace('../pages/clear.php')
 })

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    header('Location: ../index.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>FoodBall-redirect</title>
 </head>
 <body>
 <?php
@@ -14,17 +18,13 @@
         $query = "INSERT INTO users (login, password) VALUES (:login,:password)";
         $stmt = $con -> prepare($query);
 
-        $stmt -> execute(array(':login'=> $_POST['login'], ':password' => $_POST['password']));
+        $stmt -> execute(array(':login'=> $_POST['login'], ':password' => md5($_POST['password'])));
 
         $result = $stmt->fetchAll();
 
-        if(isset($result)){
-            echo '<p class="suc-reg">Вы успешно зарегистрированы</p>';
-            echo '<a href="index.php"><a href="login.php">Вернуться назад</a>';
-        }
+        if(isset($result)) $_SESSION['userName'] = $_POST['login'];
     }
 
 ?>
-
 </body>
 </html>

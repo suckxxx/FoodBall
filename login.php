@@ -1,6 +1,23 @@
 <?php
     session_start();
-    $_SESSION['userName'] = $_POST['login'];
+
+    $con = new PDO("mysql:host=localhost;dbname=foodball", "root", "root");
+
+    $user = $_SESSION['userName'];
+
+    $stmt = $con -> query('SELECT login,user_avatar,address FROM users');
+
+    $user_avatar = $stmt -> fetchAll();
+
+    foreach($user_avatar as $value){
+        if($value['login'] == $user){ 
+            $_SESSION['avatar'] = $value['user_avatar'];
+            $_SESSION['address'] = $value['address'];
+        }
+    }
+
+    $avatar = $_SESSION['avatar'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,10 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/logo-ico.svg">
-    <title>FoodBall</title>
+    <?php echo '<title>'.$_SESSION['userName'].'</title>'?>
 </head>
 <body>
-
     <div id="helper"></div>
 
     <div class="burger-modal" id="burgerModal">
@@ -34,38 +50,6 @@
         </div>
     </div>
 
-    <!--sign in modal-->
-    <div class="modal-s" id="modal">
-        <p class="login">login</p>
-        <form action="login.php" class="login-form" method="POST">
-            <label class="login-label" for="name" id="l-log">
-                <p>login</p>
-            </label>
-            <input type="text" name="login" placeholder="login" id="log">
-            <label class="pass-label" for="pass" id="l-pass">
-                <p>password</p>
-            </label>
-            <input type="password" name="pass" placeholder="password" id="pass">
-            <input type="submit" value="sign in">
-        </form>
-        <p class="regtxt">
-            Don't have an account? <a class="reg">register now</a>
-        </p>
-    </div>
-    <!--/sign in modal-->
-
-    <!--reg modal-->
-    <div class="modal-reg" id="modalReg">
-        <p class="register">registration</p>
-        <form action="register.php" method="POST" class="form-reg">
-            <input name="login" type="text" placeholder="your login" required>
-            <input name="password" type="password" placeholder="your password" required>
-            <input name="submit" type="submit" value="Зарегистрироваться">
-        </form>
-        <p class="logtxt">back to <a>login</a></p>
-    </div>
-    <!--/reg modal-->
-
     <!--header-->
     <div class="header">
         <div class="container">
@@ -81,18 +65,24 @@
                 <div class="h-t-2">
                     <div class="s-in-c">
                         <div class="user-photo" id="userPhoto">
-                            <img src="" alt="user">
+                            <?php
+                                echo "<img src='$avatar' alt='user' id='user'>";
+                            ?>
                         </div>
+                        <img src="img/logout.svg" alt="" class="logout" id="logout">
                     </div>
                 </div>
             </div>
             <div class="header-b">
                 <p class="main-t">Hungry? You're in the right place</p>
-                <div class="input">
-                    <input type="text" placeholder="enter your delivery address" class="d-a-inp">
-                    <img src="img/red-arrow.svg" alt="arrow" class="r-arrow">
-                </div>
-                <p class="d-a-inf"><a href="" class="inf-s-in">sign in</a> for your recent addresses</p>
+                <?php
+                    if($_SESSION['address'] == ''){
+                        echo '<div class="input"><input type="text" placeholder="enter your delivery address" class="d-a-inp"><img src="img/red-arrow.svg" alt="arrow" class="r-arrow"></div><p class="d-a-inf"><a href="" class="inf-s-in">sign in</a> for your recent addresses</p>';
+                    }
+                    else{
+                        echo '<p class="user-address">'.$_SESSION['address'].'</p>';
+                    };
+                ?>
             </div>
         </div>
     </div>
@@ -251,9 +241,8 @@
 
     <!--footer-->
     <div class="footer">
-        <p>wip</p>
     </div>
     <!--/footer-->
-<script src="js/main.js"></script>
+<script src="js/loginPage.js"></script>
 </body>
 </html>
