@@ -10,6 +10,8 @@ var trash = document.querySelectorAll('.trash-count')
 var burger = document.getElementById('burger')
 var burgerModal = document.getElementById('burgerModal')
 var burgerLeave = document.getElementById('burgerLeave')
+var registerButton = document.getElementById('registerButton')
+var modalReg = document.getElementById('modalReg')
 
 var offset = (el) => {
     const rect = el.getBoundingClientRect(),
@@ -105,4 +107,8 @@ burger.addEventListener('click', e => {
 burgerLeave.addEventListener('click', e => {
     burgerModal.style.visibility = 'hidden'
     burgerModal.style.opacity = 0
+})
+
+registerButton.addEventListener('click', e => {
+    alert('work')
 })

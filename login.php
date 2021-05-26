@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['userName'] = $_POST['login'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/logo-ico.svg">
-    <title>FoodBall - main</title>
+    <title>FoodBall</title>
 </head>
 <body>
 
@@ -48,7 +49,7 @@
             <input type="submit" value="sign in">
         </form>
         <p class="regtxt">
-            Don't have an account? <a class="reg" id="registerButton">register now</a>
+            Don't have an account? <a class="reg">register now</a>
         </p>
     </div>
     <!--/sign in modal-->
@@ -61,7 +62,7 @@
             <input name="password" type="password" placeholder="your password" required>
             <input name="submit" type="submit" value="Зарегистрироваться">
         </form>
-        <p class="logtxt">back to <button id="loginButton">login</button></p>
+        <p class="logtxt">back to <a>login</a></p>
     </div>
     <!--/reg modal-->
 
@@ -79,7 +80,9 @@
                 </div>
                 <div class="h-t-2">
                     <div class="s-in-c">
-                        <button class="s-in-btn" id="signInButton">sign in</button>
+                        <div class="user-photo" id="userPhoto">
+                            <img src="" alt="user">
+                        </div>
                     </div>
                 </div>
             </div>

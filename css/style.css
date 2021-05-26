@@ -216,6 +216,7 @@
 .logtxt a{
     text-decoration: underline;
     color: #383838;
+    cursor: pointer;
 }
 
 #logo{
