@@ -153,6 +153,7 @@
 .reg{
     color: #383838;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .modal-reg{

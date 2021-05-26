@@ -61,7 +61,7 @@
             <input name="password" type="password" placeholder="your password" required>
             <input name="submit" type="submit" value="Зарегистрироваться">
         </form>
-        <p class="logtxt">back to <button id="loginButton">login</button></p>
+        <p class="logtxt">back to <a id="loginButton">login</a></p>
     </div>
     <!--/reg modal-->
 
