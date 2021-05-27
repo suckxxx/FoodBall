@@ -67,7 +67,7 @@
                     <a href="#htp">Help the project</a>
                 </div>
                 <div class="cart">
-                    <img src="img/trash.svg" alt="" class="s-cart">
+                    <img src="img/trash.svg" alt="" class="s-cart" id="cartButton">
                     <div class="trash-count"></div>
                 </div>
             </div>

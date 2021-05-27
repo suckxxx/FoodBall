@@ -15,6 +15,7 @@ var modalReg = document.getElementById('modalReg')
 var loginButton = document.getElementById('loginButton')
 var user = document.getElementById('user')
 var logout = document.getElementById('logout')
+var cartButton = document.getElementById('cartButton')
 
 var offset = (el) => {
     const rect = el.getBoundingClientRect(),
@@ -86,31 +87,6 @@ setInterval(() => {
     }
 },100)
 
-
-
-//test корзины
-trashCount = 0
-
-for(var i = 0; i < trash.length; i++){
-    if (trashCount >= 1000) {
-        trashCount /= 1000
-        trashCount += 'k'
-    } else if (trashCount >= 100) {
-        trashCount /= 100
-        trashCount += 'h'
-    }
-    
-    if (trashCount > 0){
-        trash[i].style.opacity = '1'
-        trash[i].style.visibility = 'visible'
-    } else {
-        trash[i].style.opacity = '0'
-        trash[i].style.visibility = 'hidden'
-    }
-
-    trash[i].innerHTML = trashCount
-}
-
 //burger menu
 burger.addEventListener('click', e => {
     burgerModal.style.visibility = 'visible'
@@ -120,4 +96,8 @@ burger.addEventListener('click', e => {
 burgerLeave.addEventListener('click', e => {
     burgerModal.style.visibility = 'hidden'
     burgerModal.style.opacity = '0'
+})
+
+cartButton.addEventListener('click', e => {
+    document.location.replace('cart.php')
 })

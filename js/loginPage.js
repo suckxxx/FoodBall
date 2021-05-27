@@ -15,6 +15,7 @@ var modalReg = document.getElementById('modalReg')
 var loginButton = document.getElementById('loginButton')
 var user = document.getElementById('user')
 var logout = document.getElementById('logout')
+var cartButton = document.getElementById('cartButton')
 
 var offset = (el) => {
     const rect = el.getBoundingClientRect(),
@@ -80,4 +81,8 @@ user.addEventListener('click', e => {
 
 logout.addEventListener('click', e => {
     document.location.replace('pages/clear.php')
+})
+
+cartButton.addEventListener('click', e => {
+    document.location.replace('cart.php')
 })
