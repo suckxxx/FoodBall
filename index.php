@@ -20,6 +20,28 @@
 
     <div id="helper"></div>
 
+    <!-- <div class="cart-modal" id="cartModal">
+        <p class="cart-heading">Cart</p>
+        <div class="cart-popular">
+            <p class="popular-heading">Popular</p>
+            <div class="popular-food">
+                <div class="food">
+                    <div class="food-info">
+                        <img src="img/food/burger.jpg" alt="">
+                        <p>burger</p>
+                        <p>cost: 300</p>
+                    </div>
+                    <div class="plus">
+                        <p>+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="your-cart">
+            <p class="yCart-heading">Your cart</p>
+        </div>
+    </div> -->
+
     <div class="burger-modal" id="burgerModal">
         <div class="container">
             <div class="burger-nav">
@@ -110,12 +132,6 @@
                 </div>
                 <div class="slider-arrow">
                     <a href="#" class="v-all">view all</a>
-                    <a href="#" class="a-left">
-                        <img src="img/arrow-l.svg" alt="arrow">
-                    </a>
-                    <a href="#" class="a-right">
-                        <img src="img/arrow-r.svg" alt="arrow">
-                    </a>
                 </div>
             </div>
             <!--/fnm header-->
@@ -150,42 +166,17 @@
                 </div>
             </div>
             <div class="otr-items">
-                <div class="item">
-                    <div class="item-inf">
-                        <img src="img/mc_donalds.png" alt="">
-                    </div>
-                    <img src="img/rest1.jpg" alt="">
-                </div>
-                <div class="item">
-                    <div class="item-inf">
-                        <img src="img/papajohns.svg" alt="">
-                    </div>
-                    <img src="img/rest2.jpg" alt="">
-                </div>
-                <div class="item">
-                    <div class="item-inf">
-                        <img src="img/burger_king.png" alt="">
-                    </div>
-                    <img src="img/rest3.jpeg" alt="">
-                </div>
-                <div class="item">
-                    <div class="item-inf">
-                        <img src="img/vkuss.png" alt="">
-                    </div>
-                    <img src="img/rest4.jpg" alt="">
-                </div>
-                <div class="item">
-                    <div class="item-inf">
-                        <img src="img/starbucks-logo.png" alt="">
-                    </div>
-                    <img src="img/rest5.jpg" alt="">
-                </div>
-                <div class="item">
-                    <div class="item-inf">
-                        <img src="img/dixi.svg" alt="">
-                    </div>
-                    <img src="img/rest6.jpg" alt="">
-                </div>
+                <?php
+                $allRest = $con -> query('SELECT rest_logo,rest_hover_logo FROM restaurants');
+
+                $rest = $allRest -> fetchAll();
+
+                foreach($rest as $value){
+                    $restLogo = $value['rest_logo'];
+                    $restHover = $value['rest_hover_logo'];
+                    echo '<div class="item">'.'<div class="item-inf">'."<img src='$restLogo' alt=''>".'</div>'."<img src='$restHover' alt=''>".'</div>';
+                }
+                ?>
             </div>
         </div>
     </div>

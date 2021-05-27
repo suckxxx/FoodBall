@@ -75,9 +75,9 @@ burgerLeave.addEventListener('click', e => {
 
 
 user.addEventListener('click', e => {
-    document.location.replace('../pages/loginP/user.php')
+    document.location.replace('user.php')
 })
 
 logout.addEventListener('click', e => {
-    document.location.replace('../pages/clear.php')
+    document.location.replace('pages/clear.php')
 })

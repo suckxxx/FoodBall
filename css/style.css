@@ -703,30 +703,152 @@
 .user-l-name{
     font-size: 40px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .user-a{
-    width: 500px;
-    height: 600px;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
     object-fit: cover;
+    border: 1px solid #A7A7A7;
 }
 
 .user-a img{
-    width: 300px;
+    width: 400px;
     height: 400px;
+    border-radius: 100%;
     object-fit: cover;
 }
 
 .u-info{
     display: flex;
     align-items: center;
+    flex-direction: center;
+    flex-direction: column;
 }
 
 .u-i p{
     font-size: 30px;
     color: #383838;
     margin-bottom: 40px;
+}
+
+.u-i p:nth-child(1){
+    margin-top: 200px;
+    font-size: 40px;
+    text-align: center;
+    color: black;
+}
+
+
+.admin-header-m{
+    margin-top: 20px;
+}
+
+.admin-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-main{
+    margin-top: 100px;
+}
+
+.lastP-heading{
+    font-size: 30px;
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+}
+
+.lastP-info{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    transform: translateY(-200px);
+    display: none;
+}
+
+.lastP-hide{
+    transform: translateY(0);
+    display: flex;
+}
+
+.ps-result{
+    padding: 10px;
+    border: 1px solid black;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.ps-result:not(:last-child){
+    margin-right: 20px;
+}
+
+.newR-heading{
+    margin-top: 40px;
+    font-size: 30px;
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+}
+
+.newR-post{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    display: none;
+}
+
+.newR-post input{
+    padding-left: 5px;
+    font-size: 18px;
+    width: 500px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.newRBtn{
+    background-color: #383838;
+    border:none;
+    color: white;
+    margin-left: 4px;
+}
+
+.newR-post-hide{
+    display: flex;
+}
+
+.user-header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.u-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.yLast-p{
+    margin-top: 100px;
+}
+
+.yLast-heading{
+    font-size: 40px;
+    text-align: center;
+}
+
+.lastU-info{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 /*---  Анимации ---*/

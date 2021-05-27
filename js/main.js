@@ -121,13 +121,3 @@ burgerLeave.addEventListener('click', e => {
     burgerModal.style.visibility = 'hidden'
     burgerModal.style.opacity = '0'
 })
-
-
-user.addEventListener('click', e => {
-    document.location.replace('pages/loginP/user.php')
-})
-
-logout.addEventListener('click', e => {
-    alert('hello')
-    document.location.replace('pages/clear.php')
-})
