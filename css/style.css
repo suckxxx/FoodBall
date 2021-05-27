@@ -851,6 +851,39 @@
     margin-top: 50px;
 }
 
+.cart-header{
+    padding: 20px 0 20px 0;
+}
+
+.ch-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartH-2{
+    display: flex;
+    align-items: center;
+}
+
+.cart-popular{
+    margin-top: 100px;
+}
+
+.pf-heading{
+    font-size: 40px;
+}
+
+.food{
+    display: flex;
+    align-items: center;
+}
+
+.food img{
+    width: 100px;
+    height: 100px;
+}
+
 /*---  Анимации ---*/
 
 @keyframes pulse {
