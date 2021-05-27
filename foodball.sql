@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 26 2021 г., 22:54
+-- Время создания: Май 27 2021 г., 10:59
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.1.33
 
@@ -24,12 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `categories`
+--
+
+CREATE TABLE `categories` (
+  `categories_id` int NOT NULL,
+  `categories_name` varchar(30) NOT NULL,
+  `restaurants_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `cheque`
 --
 
 CREATE TABLE `cheque` (
   `cheque_id` int NOT NULL,
-  `user_id` int NOT NULL
+  `user_id` int NOT NULL,
+  `food_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `food`
+--
+
+CREATE TABLE `food` (
+  `food_id` int NOT NULL,
+  `food_cost` int NOT NULL,
+  `restaurants_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -40,7 +65,8 @@ CREATE TABLE `cheque` (
 
 CREATE TABLE `restaurants` (
   `rest_id` int NOT NULL,
-  `rest_name` varchar(20) NOT NULL
+  `rest_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `rest_logo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -73,11 +99,27 @@ INSERT INTO `users` (`user_id`, `login`, `password`, `address`, `user_roles`, `u
 --
 
 --
+-- Индексы таблицы `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`categories_id`),
+  ADD KEY `restaurants_id` (`restaurants_id`);
+
+--
 -- Индексы таблицы `cheque`
 --
 ALTER TABLE `cheque`
   ADD PRIMARY KEY (`cheque_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `food_id` (`cheque_id`),
+  ADD KEY `food_id_2` (`food_id`);
+
+--
+-- Индексы таблицы `food`
+--
+ALTER TABLE `food`
+  ADD PRIMARY KEY (`food_id`),
+  ADD KEY `restaurants_id` (`restaurants_id`);
 
 --
 -- Индексы таблицы `restaurants`
@@ -96,10 +138,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `categories_id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `cheque`
 --
 ALTER TABLE `cheque`
   MODIFY `cheque_id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `food`
+--
+ALTER TABLE `food`
+  MODIFY `food_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `restaurants`
@@ -112,6 +166,29 @@ ALTER TABLE `restaurants`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `categories`
+--
+ALTER TABLE `categories`
+  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`restaurants_id`) REFERENCES `restaurants` (`rest_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `cheque`
+--
+ALTER TABLE `cheque`
+  ADD CONSTRAINT `cheque_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `cheque_ibfk_2` FOREIGN KEY (`food_id`) REFERENCES `food` (`food_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `food`
+--
+ALTER TABLE `food`
+  ADD CONSTRAINT `food_ibfk_1` FOREIGN KEY (`restaurants_id`) REFERENCES `restaurants` (`rest_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
