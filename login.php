@@ -5,6 +5,8 @@
 
     $user = $_SESSION['userName'];
 
+    if($_SESSION['userName'] == '') header('Location: index.php');
+
     $stmt = $con -> query('SELECT login,user_avatar,address FROM users');
 
     $user_avatar = $stmt -> fetchAll();

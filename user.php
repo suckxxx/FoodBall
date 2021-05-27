@@ -5,7 +5,10 @@
 
     $con = new PDO("mysql:host=localhost;dbname=foodball", "root", "root");
 
+    if($_SESSION['userName'] == '') header('Location: index.php');
+
     $user = $_SESSION['userName'];
+
 
     $stmt = $con -> query('SELECT login,user_avatar,address FROM users');
 

@@ -1,6 +1,10 @@
 <?php
     session_start();
+
     if($_SESSION['userName'] != '') header('Location: login.php');
+
+    $con = new PDO("mysql:host=localhost;dbname=foodball", "root", "root");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +32,7 @@
                 </div>
                 <div class="cart">
                     <img src="img/trash.svg" alt="" class="s-cart">
-                    <div class="trash-count"></div>
+                    <div class="trash-count"></div>                
                 </div>
             </div>
         </div>
@@ -117,38 +121,17 @@
             <!--/fnm header-->
             <!--slider-->
             <div class="f-slider">
-                <div class="slide">
-                    <img src="img/s-food-fastfood.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">fast food</p>
-                </div>
-                <div class="slide">
-                    <img src="img/s-food-breakfast.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">breakfast</p>
-                </div>
-                <div class="slide">
-                    <img src="img/s-food-american.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">american</p>
-                </div>
-                <div class="slide">
-                    <img src="img/s-food-mexican.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">mexican</p>
-                </div>
-                <div class="slide">
-                    <img src="img/s-food-chinese.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">chinese</p>
-                </div>
-                <div class="slide">
-                    <img src="img/s-food-meat.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">meat</p>
-                </div>
-                <div class="slide">
-                    <img src="img/s-food-fish.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">fish</p>
-                </div>
-                <div class="slide">
-                    <img src="img/s-food-vegetables.jpg" alt="" class="slide-img">
-                    <p class="slide-heading">vegetables</p>
-                </div>
+            <?php
+                $allCategories = $con -> query('SELECT categories_name,categories_img FROM categories');
+
+                $categories = $allCategories -> fetchAll();
+
+                foreach($categories as $value){
+                    $categoriesName = $value['categories_name'];
+                    $categoriesImg = $value['categories_img'];
+                    echo '<div class="slide">'."<img src='$categoriesImg' alt='categImg' class='slide-img'>".'<p class="slide-heading">'.$categoriesName.'</p>'.'</div>';
+                }
+            ?>
             </div>
             <!--/slider-->
         </div>
