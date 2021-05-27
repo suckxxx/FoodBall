@@ -61,8 +61,8 @@
                 <p class="newR-heading" id="newRest">New restaurant</p>
                 <form action="" class="newR-post" method="POST" id="newPost">
                     <input type="text" name="rest_name" class="newRInput" placeholder="name of restaurant">
-                    <input type="text" name="rest_logo" class="newRInput" placeholder="path to the file of logo file">
-                    <input type="text" name="rest_hover_logo" class="newRInput" placeholder="path to the file of hover logo file">
+                    <input type="text" name="rest_logo" class="newRInput" placeholder="path to the file of hover logo file">
+                    <input type="text" name="rest_hover_logo" class="newRInput" placeholder="path to the file of logo file">
                     <input type="submit" value="Добавить" class="newRBtn">
                     <?php
                         $query = "INSERT INTO restaurants (rest_name, rest_logo, rest_hover_logo) VALUES (:rest_name,:rest_logo,:rest_hover_logo)";
